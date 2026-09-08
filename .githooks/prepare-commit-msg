@@ -1,0 +1,9 @@
+#!/bin/sh
+# Flashbrix history is owner-only (aland3r). Strip agent attribution trailers.
+msg_file=$1
+[ -n "$msg_file" ] || exit 0
+tmp=${msg_file}.tmp
+grep -viE '^[[:space:]]*(Co-authored-by|Co-Authored-By):.*(Cursor|Claude|cursoragent|Anthropic|OpenAI)' "$msg_file" \
+  | grep -viE 'Made with Cursor|Generated with Claude Code|Co-authored-by: Cursor' \
+  > "$tmp"
+mv "$tmp" "$msg_file"

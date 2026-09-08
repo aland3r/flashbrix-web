@@ -1,0 +1,45 @@
+/* Instrument Serif — self-hosted, opt-in via .mb-serif (not applied globally). */
+
+@font-face {
+  font-family: 'Instrument Serif';
+  src: url('/fonts/InstrumentSerif-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-serif: 'Instrument Serif', 'Times New Roman', serif;
+  --mb-serif-size: 1.125rem;
+  --mb-serif-line-height: 1.45;
+  --mb-serif-weight: 400;
+  /* Official cut is Regular only; lighter values use browser weight synthesis. */
+  --mb-serif-weight-light: 300;
+  --mb-serif-letter-spacing: 0.01em;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --mb-serif-size: 1.25rem;
+  }
+}
+
+.mb-serif {
+  font-family: var(--font-serif);
+  font-size: var(--mb-serif-size);
+  line-height: var(--mb-serif-line-height);
+  font-weight: var(--mb-serif-weight);
+  letter-spacing: var(--mb-serif-letter-spacing);
+  font-synthesis: weight;
+  text-rendering: optimizeLegibility;
+}
+
+.mb-serif--light {
+  font-weight: var(--mb-serif-weight-light);
+}
+
+.mb-serif--display {
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
