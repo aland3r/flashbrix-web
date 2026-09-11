@@ -1,10 +1,10 @@
 import {
-  ensureProductAccess,
   getAuthSessionUser,
-  hasProductAccess,
+  grantProductAccess,
   isOAuthReturn,
   loginWithGoogle as sharedLoginWithGoogle,
   logoutAuth as sharedLogoutAuth,
+  provisionProductUser,
   subscribeToAuthChanges,
 } from '@gestalt/auth'
 
@@ -32,13 +32,29 @@ export async function getMilebrickSessionUser() {
   }
 }
 
+/** Beta: any signed-in Google user may enter Flashbrix. */
 export async function checkMilebrickAccess(userId) {
-  return hasProductAccess(userId, PRODUCT_CODE)
+  return Boolean(userId)
 }
 
 export async function ensureMilebrickAccess(sessionUser) {
   if (!sessionUser) return false
-  return ensureProductAccess(sessionUser, PRODUCT_CODE)
+  try {
+    await grantProductAccess({
+      userId: sessionUser.id,
+      productCode: PRODUCT_CODE,
+      role: 'member',
+      grantedBy: sessionUser.id,
+    })
+  } catch {
+    // RLS may block self-grant; session still counts as access in beta.
+  }
+  try {
+    await provisionProductUser(sessionUser, PRODUCT_CODE, 'member')
+  } catch {
+    // Profile row can wait; the app is usable.
+  }
+  return true
 }
 
 export async function loginWithGoogle() {

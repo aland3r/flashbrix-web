@@ -10,6 +10,8 @@ import DashboardPage from './pages/DashboardPage'
 import DocsView from './pages/DocsView'
 import HomePage from './pages/HomePage'
 import LoginPage from './pages/LoginPage'
+import PayPage from './pages/PayPage'
+import TutorPage from './pages/TutorPage'
 import UseCasesView from './pages/UseCasesView'
 import ProtectedRoute, { NoAccessRedirect } from './routes/ProtectedRoute'
 import { LOADING_LINES, ROADMAP_PHASES } from './lib/roadmap'
@@ -33,6 +35,8 @@ export default function App() {
             </Route>
 
             <Route path="/" element={<HomePage />} />
+            <Route path="/tutor" element={<TutorPage />} />
+            <Route path="/pagar" element={<PayPage />} />
             <Route path="/documentacao" element={<DocsView />} />
             <Route path="/casos-de-uso" element={<UseCasesView />} />
             <Route path="/objetos" element={<DocsView />} />

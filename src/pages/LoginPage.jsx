@@ -31,8 +31,11 @@ export default function LoginPage() {
   return (
     <section className="auth-page">
       <p className="eyebrow">Flashbrix</p>
-      <h1>Entrar</h1>
-      <p className="muted">Use Google — se já entrou pelo portfolio, a sessão continua aqui.</p>
+      <h1>Criar conta</h1>
+      <p className="muted">
+        Beta aberto: Google cria a conta na hora. Depois você vê o tutor e pode
+        pagar o PIX de R$80.
+      </p>
       {error ? <p className="alert">{error}</p> : null}
       <button
         type="button"
@@ -40,7 +43,7 @@ export default function LoginPage() {
         disabled={submitting || loading}
         onClick={handleGoogleLogin}
       >
-        {submitting ? 'Redirecionando...' : 'Continuar com Google'}
+        {submitting ? 'Redirecionando...' : 'Cadastrar com Google'}
       </button>
     </section>
   )

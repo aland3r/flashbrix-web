@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import { BETA_PRICE_LABEL } from '../lib/pix'
 
 export default function DashboardPage() {
   const { user, logout } = useAuth()
@@ -15,10 +16,15 @@ export default function DashboardPage() {
       </header>
 
       <p className="muted">
-        Painel inicial placeholder — práticas e contextos entram nas próximas fases.
+        Beta: cadastro aberto. Extraia vocabulário do seu interesse — o tracker
+        de retenção entra nas próximas entregas.
       </p>
-
-      <Link to="/" className="button button--primary">Voltar à landing</Link>
+      <p className="home-cta">
+        <Link to="/pagar" className="button button--primary">Pagar PIX {BETA_PRICE_LABEL}</Link>
+        {' '}
+        <Link to="/tutor" className="button">Tutor</Link>
+      </p>
+      <Link to="/" className="button">Voltar à landing</Link>
     </section>
   )
 }

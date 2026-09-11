@@ -1,6 +1,5 @@
 import { Navigate, Outlet } from 'react-router-dom'
 import { ArcadeLoadingScreen, isDevQuestEnabled } from '@gestalt/dev-quest'
-import { getPortfolioOrigin } from '@gestalt/auth'
 import { useAuth } from '../context/AuthContext'
 
 export default function ProtectedRoute() {
@@ -28,16 +27,14 @@ export default function ProtectedRoute() {
 }
 
 export function NoAccessRedirect() {
-  const portfolioOrigin = getPortfolioOrigin()
-
   return (
     <div className="loading-screen">
-      <h1>Sem acesso ao Flashbrix</h1>
+      <h1>Beta aberto</h1>
       <p className="muted">
-        Sua conta Google está autenticada, mas este produto ainda não foi liberado para você.
+        Qualquer conta Google entra. Se caiu nesta tela, volte ao app.
       </p>
       <p>
-        <a href={`${portfolioOrigin}/request-access`}>Solicitar acesso no portfolio</a>
+        <a href="/dashboard">Ir ao app</a>
       </p>
       <p>
         <a href="/">Voltar à landing</a>
