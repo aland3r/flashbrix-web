@@ -464,15 +464,11 @@ code {
   color: #292050;
   background: #fff;
   box-shadow: none;
+  outline: none;
 }
 
 .lp__search input::placeholder {
   color: rgba(41, 32, 80, 0.5);
-}
-
-.lp__search input:focus {
-  outline: 2px solid #fff;
-  outline-offset: 3px;
 }
 
 .lp__headline {
