@@ -5,7 +5,7 @@ Rules Claude Code follows in this repository. See the README for full context.
 ## Project
 - Front end for flashbrix.com: **Vite + React in JavaScript** (not TypeScript), linted with **Oxlint**.
 - The API lives in `aland3r/flashbrix-api`. Do not add backend logic here.
-- Deployed on **Vercel**: `main` = production; other branches = previews.
+- Deployed on **Vercel**: `main` = production; `dev` = preview.
 - Everything written in the repository (code, comments, docs, commits, PRs) is in English.
 - Commits must use the personal GitHub identity (alanderavila@gmail.com), never a work account.
 
@@ -25,9 +25,9 @@ Rules Claude Code follows in this repository. See the README for full context.
 1. **Only implement official components**: Stage `Designed` or `Implemented` in Notion **and** present on the Figma Components page. If either is missing, stop and tell the user.
 2. **Identical names** in Notion, Figma and code. Components in PascalCase, props in camelCase, variant values in lowercase. Component props are the Figma variant properties.
 3. **Do not invent variants, sizes or colors.** If the design needs something undocumented, ask.
-4. **Tokens, not raw values.** Use the variables in `src/tokens`. Raw values only where no token exists yet, and list them in the PR.
+4. **Tokens, not raw values.** Use the variables in `src/tokens`. Raw values only where no token exists yet, and list them in the summary to the user.
 5. **8px grid**: dimensions, spacing and heights in multiples of 8.
-6. **Never commit or push to `main`.** Work on a branch (`design/<component>`, `page/<page>`, `wireframes/<flow>`) and open a PR.
+6. **Never commit directly to `main`.** Work on `dev`. `main` only receives a merge from `dev`, and only when the user asks for it.
 7. **Brand assets** (isotype, wordmark) come from Figma as SVGs in `src/assets/brand/`. Never recreate logos in code.
 8. **Do not edit `src/tokens` by hand**: they are generated from Figma by `/sync-design`.
 
@@ -48,4 +48,4 @@ Rules Claude Code follows in this repository. See the README for full context.
 - Lint and build pass.
 - Visuals checked against the Figma screenshot on desktop and mobile.
 - Notion updated.
-- PR opened with: what changed, Figma and Notion links, open items (e.g. values without tokens).
+- Summary to the user lists what changed, Figma and Notion links, and open items (e.g. values without tokens).

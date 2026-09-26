@@ -1,6 +1,6 @@
 ---
 name: sync-design
-description: Syncs a Figma element (link) with the Flashbrix design system code and Notion, then opens a PR. Use when the user pastes a Figma link to implement or update a component, token or page.
+description: Syncs a Figma element (link) with the Flashbrix design system code and Notion, then commits and pushes to `dev`. Use when the user pastes a Figma link to implement or update a component, token or page.
 ---
 
 # /sync-design
@@ -26,7 +26,7 @@ Follow `CLAUDE.md` in every step.
 - Tell the user, in a few lines, what will change (files, props, tokens) **before** editing.
 
 ## 4. Implement
-- Create or switch to branch `design/<name>` (component), `page/<name>` (page) or `tokens/<date>` (tokens).
+- Work on the `dev` branch (switch to it if needed). Do not create other branches.
 - Components: `src/components/<Name>/` with props = Figma variants.
 - Tokens: update `src/tokens/` from the Figma Variables/Styles.
 - Pages: `src/pages/<Name>/` using official components only.
@@ -38,7 +38,6 @@ Follow `CLAUDE.md` in every step.
 - If Figma changed something (size, variant, color), update the entry's spec.
 
 ## 6. Deliver
-- Commit with a clear message (`feat(LanguageLabel): ...`), push the branch and open a PR.
-- In the PR: summary, Figma and Notion links, open items.
-- Reply to the user with the PR link and remind them that the Vercel **preview URL** appears on the PR.
+- Commit on `dev` with a clear message (`feat(LanguageLabel): ...`) and push `dev`.
+- Reply to the user with the Vercel **preview URL** of `dev`, a summary, Figma and Notion links, and open items (e.g. values without tokens).
 - Never merge into `main` on your own.
