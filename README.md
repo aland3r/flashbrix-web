@@ -4,13 +4,13 @@ Front end for [flashbrix.com](https://flashbrix.com).
 
 - **Stack:** Vite + React (JavaScript), linted with Oxlint.
 - **API:** lives in a separate repository, [`aland3r/flashbrix-api`](https://github.com/aland3r/flashbrix-api).
-- **Deploy:** Vercel. The `main` branch is **production**; every other branch gets a **preview URL**.
+- **Deploy:** Vercel. `main` is **production**; `dev` is the **preview**.
 
 ## Running locally
 
 ```bash
 npm install
-cp .env.example .env   # fill in the variables
+cp .env.example .env.local   # fill in the variables
 npm run dev
 ```
 
@@ -47,8 +47,8 @@ Flashbrix design lives in three places, each with a fixed role.
 4. **Officialization**: happens once both are done:
    - documented in the Notion **Components** database with Stage `Designed` and the Figma link;
    - moved to the Figma **Components** page.
-5. **Implementation**: through `/sync-design`, on a branch, with a PR and a preview.
-6. **Release**: merge into `main` after reviewing the preview. The Notion Stage becomes `Implemented`.
+5. **Implementation**: through `/sync-design`, which commits and pushes to `dev` and replies with the `dev` preview URL.
+6. **Release**: merge `dev` into `main` after reviewing the `dev` preview. The Notion Stage becomes `Implemented`.
 
 If something exists in Figma but is not documented in Notion, it is **not official** and must not be implemented.
 
@@ -65,9 +65,9 @@ If something exists in Figma but is not documented in Notion, it is **not offici
    - compares it with the code and updates components and tokens;
    - updates the matching Notion entry (variants, spec, links, Stage);
    - runs lint and build;
-   - creates a branch, commits, pushes and opens a PR with a summary.
-5. Open the Vercel **preview URL** from the PR and review it.
-6. Merge into `main` to ship to production.
+   - commits and pushes to `dev`, and replies with a summary and the `dev` preview URL.
+5. Open the `dev` Vercel **preview URL** and review it.
+6. Merge `dev` into `main` to ship to production.
 
 ### Notion structure
 
@@ -110,9 +110,9 @@ src/
 
 ## Branches and deploy
 
-- **Never** commit directly to `main`. It publishes to flashbrix.com.
-- One branch per change: `design/<component>`, `page/<page>`, `wireframes/<flow>`.
-- Every push to a branch creates a Vercel preview. Review it there before merging.
+- All work happens on `dev`. Every push to `dev` updates its Vercel preview.
+- **Never** commit directly to `main`. It publishes to flashbrix.com and only receives a merge from `dev`, when the owner asks for it.
+- Review the `dev` preview before merging `dev` into `main`.
 
 ---
 
