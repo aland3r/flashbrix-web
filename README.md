@@ -33,7 +33,7 @@ Flashbrix design lives in three places, each with a fixed role.
 | Tool | Use |
 |---|---|
 | **Figma** | The only place where components and screens are created or edited. |
-| **Claude Code** (in this repository) | The day-to-day engine: reads Figma, implements, updates Notion and opens PRs. This is where `/sync-design` runs. |
+| **Claude Code** (in this repository) | The day-to-day engine: reads Figma, implements, updates Notion and pushes to `dev`. This is where `/sync-design` runs. |
 | **Claude (chat)** | System decisions: naming, structure, conventions, planning. |
 | **Claude Design** | Optional, only for exploring ideas before drawing them in Drafts. Not part of the official flow. |
 
@@ -137,4 +137,4 @@ src/
 - [ ] **Phase 3: components.** One by one, in flow order, through the official cycle.
 - [ ] **Phase 4: high-fidelity pages.** Replace wireframes with hi-fi.
 - [ ] **Phase 5: production.** Merge into `main` with a checklist (visual, mobile, accessibility).
-- [ ] **Phase 6: continuous loop.** Figma → `/sync-design` → PR → preview → production.
+- [ ] **Phase 6: continuous loop.** Figma → `/sync-design` → `dev` preview → production.
