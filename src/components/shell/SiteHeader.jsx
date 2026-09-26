@@ -9,10 +9,10 @@ function BrandMark({ landing = false }) {
       className={landing ? 'site-header__brand site-header__brand--lp' : 'site-header__brand'}
     >
       <img
-        src="/brand/flashbrix-mark.svg"
+        src="/brand/flashbrix-isotype.svg"
         alt=""
-        width={landing ? 55 : 28}
-        height={landing ? 69 : 35}
+        width={landing ? 80 : 32}
+        height={landing ? 80 : 32}
         className="site-header__mark"
       />
       Flashbrix
