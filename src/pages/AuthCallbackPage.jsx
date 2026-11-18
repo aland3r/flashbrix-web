@@ -20,7 +20,7 @@ export default function AuthCallbackPage() {
     if (loading || error) return
 
     if (isAuthenticated) {
-      navigate(hasAccess ? '/dashboard' : '/no-access', { replace: true })
+      navigate(hasAccess ? '/app' : '/no-access', { replace: true })
       return
     }
 
