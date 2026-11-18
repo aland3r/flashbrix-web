@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getSupabase } from '../lib/supabase'
 import { useAuth } from '../context/AuthContext'
-import logoUrl from '../assets/brand/flashbrix-logo.svg'
+import isotypeUrl from '../assets/brand/flashbrix-isotype-light.svg'
+import wordmarkUrl from '../assets/brand/flashbrix-wordmark.svg'
 import emailIconUrl from './login-assets/email-icon.svg'
 
 // Login screen from Figma "Login" section (node 307:3047, frames 307:3048 desktop and 457:3158 mobile).
@@ -51,7 +52,10 @@ export default function LoginPage() {
   return (
     <div className="fx-login">
       <header className="fx-login__top">
-        <img src={logoUrl} alt="Flashbrix" width="305" height="69" className="fx-login__logo" />
+        <div className="fx-login__logo" role="img" aria-label="Flashbrix">
+          <img src={isotypeUrl} alt="" width="72" height="72" />
+          <img src={wordmarkUrl} alt="" width="171" height="33" />
+        </div>
       </header>
       <main className="fx-login__stage">
         <div className="fx-login__shadow" aria-hidden="true"><span /></div>
