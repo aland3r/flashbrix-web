@@ -3,10 +3,29 @@
   "buildCommand": "npm run build && node scripts/vercel-postbuild.mjs",
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/login", "destination": "/app.html" },
-    { "source": "/auth/callback", "destination": "/app.html" },
-    { "source": "/app", "destination": "/app.html" },
-    { "source": "/app/:path*", "destination": "/app.html" },
-    { "source": "/:path*", "destination": "https://flashbrix-6tvy0umic-alanders-projects-e03f845c.vercel.app/:path*" }
+    {
+      "source": "/login",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/auth/callback",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/app",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/app/:path*",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/",
+      "destination": "https://flashbrix-6tvy0umic-alanders-projects-e03f845c.vercel.app/"
+    },
+    {
+      "source": "/:path*",
+      "destination": "https://flashbrix-6tvy0umic-alanders-projects-e03f845c.vercel.app/:path*"
+    }
   ]
 }
