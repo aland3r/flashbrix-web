@@ -156,12 +156,15 @@
 .fx-login { --login-navy: #1b2740; --login-shadow: rgba(27, 39, 64, 0.2); --login-line: rgba(255, 255, 255, 0.33);
   --login-field: rgba(217, 217, 217, 0.1); --login-hint: #b5b5b5; --login-cta: linear-gradient(178.72deg, #ff31b3 70.991%, #f9ad0a 168.73%);
   min-height: 100svh; background: var(--mint); overflow: hidden; font-family: 'Montserrat', sans-serif; }
-.fx-login__top { display: flex; justify-content: center; padding: 48px 16px 0; }
+.fx-login { display: grid; grid-template-rows: auto 1fr; }
+/* Logo at the top; the card is centred in the viewport (bottom padding mirrors the header height). */
+.fx-login__top { display: flex; justify-content: center; padding: 32px 16px 0; height: 104px; }
+.fx-login .fx-login__stage { align-self: center; margin: 24px auto calc(104px + 24px); }
 .fx-login__logo { display: flex; align-items: center; gap: 16px; }
 .fx-login__logo img { display: block; }
 /* Card spacing: card shortened from 715 to 520 (desktop) / 448 (mobile); the Vector 6 masks were adapted to
    the same heights and extended so the cast shadow fades out instead of being cut. */
-.fx-login__stage { position: relative; width: 689px; height: 520px; margin: 56px auto 160px; }
+.fx-login__stage { position: relative; width: 689px; height: 520px; }
 .fx-login__shadow { position: absolute; left: 1px; top: -1px; width: 1065.551px; height: 1104px; pointer-events: none;
   -webkit-mask: url('./login-assets/login-shadow-desktop.svg') no-repeat 0 0 / 100% 100%;
   mask: url('./login-assets/login-shadow-desktop.svg') no-repeat 0 0 / 100% 100%; }
@@ -189,11 +192,15 @@
   font: 500 16px/normal 'Montserrat', sans-serif; cursor: pointer; }
 .fx-login button:disabled { opacity: .6; cursor: progress; }
 .fx-login button:focus-visible, .fx-login input:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+/* Short desktop viewports: shrink the card (and its shadow) so it stays centred with the shadow visible. */
+@media (min-width: 761px) and (max-height: 900px) { .fx-login__stage { zoom: 0.85; } }
+@media (min-width: 761px) and (max-height: 760px) { .fx-login__stage { zoom: 0.7; } }
+@media (min-width: 761px) and (max-height: 620px) { .fx-login__stage { zoom: 0.6; } }
 @media (max-width: 760px) {
-  .fx-login__top { padding-top: 32px; }
+  .fx-login__top { padding-top: 32px; height: auto; }
   .fx-login__logo img:first-child { width: 56px; height: 56px; }
   .fx-login__logo img:last-child { width: 133px; height: auto; }
-  .fx-login__stage { width: 331px; height: 448px; margin: 40px 0 120px 28px; }
+  .fx-login .fx-login__stage { width: 331px; height: 448px; align-self: start; margin: 40px 0 120px 28px; }
   .fx-login__shadow { left: -0.186px; top: -0.049px; width: 374.186px; height: 904px;
     -webkit-mask-image: url('./login-assets/login-shadow-mobile.svg'); mask-image: url('./login-assets/login-shadow-mobile.svg'); }
   .fx-login__shadow span { left: 0.186px; top: 0.049px; width: 331px; height: 448px; border-radius: 40px; }
