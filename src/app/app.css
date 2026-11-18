@@ -101,8 +101,8 @@
 .fx-reader__tools { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; font-size: 14px; font-weight: 600; }
 .fx-toggle { display: inline-flex; gap: 8px; align-items: center; cursor: pointer; }
 .fx-toggle input { accent-color: var(--violet); width: 18px; height: 18px; }
-.fx-reader__title { font-family: 'Source Serif 4', Georgia, serif; font-weight: 600; font-size: clamp(28px, 4vw, 38px); line-height: 1.15; margin: 0 0 24px; color: var(--plum); }
-.fx-reader__body { font-family: 'Source Serif 4', Georgia, serif; font-size: 19px; line-height: 1.7; max-width: 68ch; }
+.fx-reader__title { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(34px, 5vw, 48px); line-height: 1.05; margin: 0 0 24px; color: var(--plum); }
+.fx-reader__body { font-family: 'Montserrat', system-ui, sans-serif; font-weight: 500; font-size: 18px; line-height: 1.75; max-width: 66ch; }
 .fx-reader__body h2 { font-family: 'Montserrat', sans-serif; font-size: 15px; letter-spacing: .06em; text-transform: uppercase; color: var(--violet-ink); margin: 32px 0 8px; }
 .fx-reader__body blockquote { margin: 16px 0; padding-left: 16px; border-left: 3px solid var(--lav); font-style: italic; }
 .fx-w { cursor: pointer; border-radius: 4px; transition: background .15s; }
@@ -118,8 +118,8 @@
   box-shadow: 0 20px 40px -24px rgba(74, 38, 71, .4); animation: fx-in .22s ease-out; }
 @keyframes fx-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 .fx-lookup__head { display: flex; justify-content: space-between; gap: 8px; }
-.fx-lookup__term { font: 600 22px 'Source Serif 4', Georgia, serif; border: 0; background: none; padding: 0; width: 100%; color: var(--plum); }
-.fx-lookup__ipa { display: flex; gap: 12px; color: var(--violet-ink); font-family: 'Source Serif 4', Georgia, serif; }
+.fx-lookup__term { font: 400 28px 'Instrument Serif', Georgia, serif; border: 0; background: none; padding: 0; width: 100%; color: var(--plum); }
+.fx-lookup__ipa { display: flex; gap: 12px; color: var(--violet-ink); font-family: 'Montserrat', system-ui, sans-serif; }
 .fx-lookup__meanings { margin: 0; padding-left: 18px; font-size: 13px; display: grid; gap: 4px; }
 .fx-lookup__meanings .fx-link { color: var(--ink); text-align: left; }
 .fx-x { border: 0; background: var(--cream); border-radius: 50%; width: 32px; height: 32px; font-size: 20px; cursor: pointer; flex: none; }
@@ -136,7 +136,7 @@
 /* Class mode: larger type for screen sharing */
 .fx--class .fx-bar { display: none; }
 .fx--class .fx-main--wide { width: min(1400px, calc(100% - 32px)); padding-top: 20px; }
-.fx--class .fx-reader__body { font-size: 25px; max-width: 60ch; }
+.fx--class .fx-reader__body { font-size: 24px; max-width: 60ch; }
 .fx--class .fx-reader__title { font-size: clamp(34px, 4vw, 48px); }
 
 /* Lexicon */
@@ -144,7 +144,7 @@
 .fx-card-brick { background: var(--paper); border: 1px solid var(--line); border-top: 6px solid var(--brick); border-radius: 14px; padding: 14px 16px; }
 .fx-card-brick__head { display: flex; gap: 10px; align-items: baseline; }
 .fx-card-brick__head b { font-size: 18px; }
-.fx-ipa { color: var(--violet-ink); font-family: 'Source Serif 4', Georgia, serif; }
+.fx-ipa { color: var(--violet-ink); font-family: 'Montserrat', system-ui, sans-serif; }
 .fx-card-brick__pos { font-size: 12px; color: var(--muted); }
 .fx-card-brick p { margin: 8px 0 0; font-size: 14px; }
 .fx-example { font-style: italic; color: var(--muted); }
