@@ -16,7 +16,7 @@ export default function AppShell({ children, wide = false, classMode = false }) 
     <div className={`fx ${classMode ? 'fx--class' : ''}`}>
       <header className="fx-bar">
         <Link to="/app" className="fx-bar__brand">
-          <img src="/brand/flashbrix-isotype.svg" alt="" width="32" height="32" />
+          <img src="/app-assets/flashbrix-isotype.svg" alt="" width="32" height="32" />
           <span>Flashbrix</span>
         </Link>
         <form className="fx-bar__search" onSubmit={submit} role="search">

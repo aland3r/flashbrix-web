@@ -27,7 +27,7 @@ export default function LoginPage() {
     <div className="fx-login">
       <main className="fx-login__stage">
         <section className="fx-login__card" aria-labelledby="login-title">
-          <img src="/brand/flashbrix-isotype.svg" alt="" width="64" height="64" className="fx-login__mark" />
+          <img src="/app-assets/flashbrix-isotype.svg" alt="" width="64" height="64" className="fx-login__mark" />
           <h1 id="login-title" className="fx-login__title">Flashbrix</h1>
           <p>Use a conta Google que o seu tutor convidou.</p>
           {error ? <p className="fx-alert">{error}</p> : null}
