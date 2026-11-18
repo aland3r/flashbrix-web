@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import logoUrl from '../assets/brand/flashbrix-logo.svg'
 
 export default function AppShell({ children, wide = false, classMode = false }) {
   const { user, logout } = useAuth()
@@ -16,8 +17,7 @@ export default function AppShell({ children, wide = false, classMode = false }) 
     <div className={`fx ${classMode ? 'fx--class' : ''}`}>
       <header className="fx-bar">
         <Link to="/app" className="fx-bar__brand">
-          <img src="/app-assets/flashbrix-isotype.svg" alt="" width="32" height="32" />
-          <span>Flashbrix</span>
+          <img src={logoUrl} alt="Flashbrix" width="141" height="32" />
         </Link>
         <form className="fx-bar__search" onSubmit={submit} role="search">
           <input

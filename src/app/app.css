@@ -151,22 +151,52 @@
 .fx-search-result { max-width: 520px; }
 
 /* Login (Figma 307:3047): mint stage, navy card with a long cast shadow */
-.fx-login { background: var(--mint); }
-.fx-login__stage { min-height: 100svh; display: grid; place-items: center; padding: 48px 16px; overflow: hidden; }
-.fx-login__card { position: relative; width: min(440px, 100%); min-height: 440px; background: #1b2740; color: #fff;
-  border-radius: 48px; padding: 56px 40px; display: grid; gap: 16px; justify-items: center; align-content: center; text-align: center;
-  box-shadow: 4px 4px 0 rgba(27,39,64,0.068), 8px 8px 0 rgba(27,39,64,0.067), 12px 12px 0 rgba(27,39,64,0.065), 16px 16px 0 rgba(27,39,64,0.064), 20px 20px 0 rgba(27,39,64,0.062), 24px 24px 0 rgba(27,39,64,0.060), 28px 28px 0 rgba(27,39,64,0.059), 32px 32px 0 rgba(27,39,64,0.057), 36px 36px 0 rgba(27,39,64,0.056), 40px 40px 0 rgba(27,39,64,0.054), 44px 44px 0 rgba(27,39,64,0.053), 48px 48px 0 rgba(27,39,64,0.051), 52px 52px 0 rgba(27,39,64,0.049), 56px 56px 0 rgba(27,39,64,0.048), 60px 60px 0 rgba(27,39,64,0.046), 64px 64px 0 rgba(27,39,64,0.045), 68px 68px 0 rgba(27,39,64,0.043), 72px 72px 0 rgba(27,39,64,0.041), 76px 76px 0 rgba(27,39,64,0.040), 80px 80px 0 rgba(27,39,64,0.038), 84px 84px 0 rgba(27,39,64,0.037), 88px 88px 0 rgba(27,39,64,0.035), 92px 92px 0 rgba(27,39,64,0.033), 96px 96px 0 rgba(27,39,64,0.032), 100px 100px 0 rgba(27,39,64,0.030), 104px 104px 0 rgba(27,39,64,0.029), 108px 108px 0 rgba(27,39,64,0.027), 112px 112px 0 rgba(27,39,64,0.025), 116px 116px 0 rgba(27,39,64,0.024), 120px 120px 0 rgba(27,39,64,0.022), 124px 124px 0 rgba(27,39,64,0.021), 128px 128px 0 rgba(27,39,64,0.019), 132px 132px 0 rgba(27,39,64,0.018), 136px 136px 0 rgba(27,39,64,0.016), 140px 140px 0 rgba(27,39,64,0.014), 144px 144px 0 rgba(27,39,64,0.013), 148px 148px 0 rgba(27,39,64,0.011), 152px 152px 0 rgba(27,39,64,0.010), 156px 156px 0 rgba(27,39,64,0.008), 160px 160px 0 rgba(27,39,64,0.006), 164px 164px 0 rgba(27,39,64,0.005), 168px 168px 0 rgba(27,39,64,0.003), 172px 172px 0 rgba(27,39,64,0.002); }
-.fx-login__mark { display: block; }
-.fx-login__title { margin: 0; font-family: 'Tijolo', 'Montserrat', sans-serif; font-weight: 600; font-size: 40px; color: #fff; }
-.fx-login__card p { margin: 0; color: rgba(255,255,255,.72); font-size: 14px; }
-.fx-login__note { font-size: 12px !important; }
-.fx-google { display: inline-flex; align-items: center; justify-content: center; gap: 12px; width: 100%; padding: 16px 24px; border-radius: 16px;
-  border: 0; background: #ff6f4f; font: 600 16px 'Montserrat', sans-serif; color: #fff; cursor: pointer;
-  box-shadow: inset 0 -4px 0 rgba(0,0,0,.18); transition: transform .2s ease-out; }
-.fx-google svg { background: #fff; border-radius: 50%; padding: 3px; width: 26px; height: 26px; }
-.fx-google:hover { transform: translateY(-1px); }
-.fx-google:disabled { opacity: .6; cursor: default; }
-@media (max-width: 480px) { .fx-login__card { border-radius: 32px; padding: 40px 24px; min-height: 0; } }
+/* Login — Figma 307:3047 (desktop 307:3048, mobile 457:3158). The cast shadow is the card's
+   drop shadow (8px 8px, blur 200, spread 200, rgba(27,39,64,.2)) clipped by the "Vector 6" mask. */
+.fx-login { --login-navy: #1b2740; --login-shadow: rgba(27, 39, 64, 0.2); --login-line: rgba(255, 255, 255, 0.33);
+  --login-field: rgba(217, 217, 217, 0.1); --login-hint: #b5b5b5; --login-cta: linear-gradient(178.72deg, #ff31b3 70.991%, #f9ad0a 168.73%);
+  min-height: 100svh; background: var(--mint); overflow: hidden; font-family: 'Montserrat', sans-serif; }
+.fx-login__top { display: flex; justify-content: center; padding: 56px 16px 0; }
+.fx-login__logo { display: block; width: 305px; height: 69px; }
+.fx-login__stage { position: relative; width: 689px; height: 715px; margin: 112px auto 0; }
+.fx-login__shadow { position: absolute; left: 1px; top: -1px; width: 1065.551px; height: 1018.548px; pointer-events: none;
+  -webkit-mask: url('./login-assets/login-shadow-desktop.svg') no-repeat 0 0 / 100% 100%;
+  mask: url('./login-assets/login-shadow-desktop.svg') no-repeat 0 0 / 100% 100%; }
+.fx-login__shadow span { position: absolute; left: -1px; top: 1px; width: 689px; height: 715px; border-radius: 88px;
+  background: var(--login-navy); box-shadow: 8px 8px 200px 200px var(--login-shadow); }
+.fx-login__card { position: relative; width: 100%; height: 100%; border-radius: 88px; background: var(--login-navy); color: #fff;
+  display: grid; place-items: center; }
+.fx-login__form { width: 327px; }
+.fx-login__email-form { width: 100%; }
+.fx-login__form, .fx-login__email-form { display: grid; gap: 32px; justify-items: center; }
+.fx-login__google { width: 100%; display: flex; align-items: center; padding: 8px 40px 8px 16px; border: 1px solid var(--login-line);
+  border-radius: 2px; background: transparent; color: #fff; font: 500 14px/normal 'Montserrat', sans-serif; cursor: pointer; }
+.fx-login__google-mark { display: flex; width: 24px; height: 19px; align-items: center; justify-content: center; flex-shrink: 0; }
+.fx-login__google-label { flex: 1; text-align: center; }
+.fx-login__hint { margin: 0; width: 168px; min-height: 24px; color: var(--login-hint); font-size: 10px; line-height: 12px; text-align: center; }
+.fx-login__hint--error { color: #ffb4a6; }
+.fx-login__email { width: 100%; display: flex; align-items: center; }
+.fx-login__email-icon { display: flex; height: 40px; align-items: center; justify-content: center; padding: 0 13px;
+  background: var(--login-field); border-radius: 2px 0 0 2px; }
+.fx-login__email input { flex: 1; min-width: 0; height: 40px; padding: 0 8px; border: 1px solid var(--login-field); border-radius: 0 2px 2px 0;
+  background: transparent; color: #fff; font: 500 14px 'Montserrat', sans-serif; outline: none; }
+.fx-login__email input::placeholder { color: rgba(255, 255, 255, 0.45); }
+.fx-login__email input:focus { border-color: var(--login-line); }
+.fx-login__submit { width: 100%; padding: 16px 32px; border: 0; border-radius: 8px; background: var(--login-cta); color: #fff;
+  font: 500 16px/normal 'Montserrat', sans-serif; cursor: pointer; }
+.fx-login button:disabled { opacity: .6; cursor: progress; }
+.fx-login button:focus-visible, .fx-login input:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+@media (max-width: 760px) {
+  .fx-login__top { padding-top: 24px; }
+  .fx-login__logo { width: 196px; height: auto; }
+  .fx-login__stage { width: min(331px, calc(100vw - 56px)); height: 715px; margin: 24px 0 0 28px; }
+  .fx-login__shadow { left: -0.186px; top: -0.049px; width: 374.186px; height: 852.05px;
+    -webkit-mask-image: url('./login-assets/login-shadow-mobile.svg'); mask-image: url('./login-assets/login-shadow-mobile.svg'); }
+  .fx-login__shadow span { left: 0.186px; top: 0.049px; width: min(331px, calc(100vw - 56px)); border-radius: 40px; }
+  .fx-login__card { border-radius: 40px; }
+  .fx-login__form { width: min(327px, calc(100% - 32px)); }
+  .fx-login__email-form { width: 100%; }
+}
 
 @media (max-width: 900px) {
   .fx-reader-wrap { grid-template-columns: 1fr; }
