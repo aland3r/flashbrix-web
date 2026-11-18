@@ -25,18 +25,10 @@ export default function LoginPage() {
 
   return (
     <div className="fx-login">
-      <header className="fx-login__top">
-        <a href="/" className="fx-bar__brand">
-          <img src="/brand/flashbrix-isotype.svg" alt="" width="40" height="40" />
-          <span>Flashbrix</span>
-        </a>
-      </header>
       <main className="fx-login__stage">
-        <h1 className="fx-display">
-          <em>Find your words</em> when you need them most.
-        </h1>
         <section className="fx-login__card" aria-labelledby="login-title">
-          <h2 id="login-title">Entrar</h2>
+          <img src="/brand/flashbrix-isotype.svg" alt="" width="64" height="64" className="fx-login__mark" />
+          <h1 id="login-title" className="fx-login__title">Flashbrix</h1>
           <p>Use a conta Google que o seu tutor convidou.</p>
           {error ? <p className="fx-alert">{error}</p> : null}
           <button type="button" className="fx-google" onClick={go} disabled={busy || loading}>
@@ -48,7 +40,7 @@ export default function LoginPage() {
             </svg>
             {busy ? 'Abrindo o Google…' : 'Continuar com Google'}
           </button>
-          <p className="fx-muted fx-small">Ainda não tem convite? Fale com o seu tutor.</p>
+          <p className="fx-login__note">Ainda não tem convite? Fale com o seu tutor.</p>
         </section>
       </main>
     </div>
